@@ -1,0 +1,46 @@
+name: purejaxrl
+channels:
+  - pytorch
+  - nvidia/label/cuda-12.1.0
+  - conda-forge
+  - defaults
+dependencies:
+  # Python version and pip
+  - python=3.10
+  - pip
+
+  # Basic packages
+  - numpy
+  - matplotlib
+  - seaborn
+  - pandas
+  - scikit-learn
+  - tqdm
+  - wandb
+
+  # Basic JAX packages
+  - distrax
+  - optax
+  - flax
+  - brax
+
+  # Core PyTorch packages
+  - pytorch>=2.1
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+
+  # Jupyter notebook support
+  - jupyter
+  - ipykernel
+
+  # Pip packages
+  - pip:
+      # JAX (conda version is fragile)
+      - jax[cuda12]
+
+      # Extras for PureJaxRL
+      - gymnax
+      - evosax
+      - flashbax
+      - navix
