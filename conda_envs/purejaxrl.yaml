@@ -1,12 +1,13 @@
+# Compatibility set to match Isaac Sim 5.0.0 / Isaac Lab 2.2.1
 name: purejaxrl
 channels:
   - pytorch
-  - nvidia/label/cuda-12.1.0
+  - nvidia/label/cuda-12.8.0
   - conda-forge
   - defaults
 dependencies:
   # Python version and pip
-  - python=3.10
+  - python=3.11
   - pip
 
   # Basic packages
@@ -18,28 +19,26 @@ dependencies:
   - tqdm
   - wandb
 
-  # Basic JAX packages
-  - distrax
-  - optax
-  - flax
-  - brax
-
-  # Core PyTorch packages
-  - pytorch>=2.1
-  - torchvision
-  - torchaudio
-  - pytorch-cuda=12.1
-
   # Jupyter notebook support
   - jupyter
   - ipykernel
 
   # Pip packages
   - pip:
-      # JAX (conda version is fragile)
-      - jax[cuda12]
+      # Core Torch packages
+      - torch==2.7.0
+      - torchvision==0.22.0
+      - torchaudio
 
-      # Extras for PureJaxRL
+      # Core JAX packages
+      - jax[cuda12]<0.6.0
+      - distrax
+      - optax
+      - flax
+      - chex
+
+      # JAX Extras for PureJaxRL
+      - brax
       - gymnax
       - evosax
       - flashbax
